@@ -5,17 +5,21 @@ class MainClass
 {
     public static void Main(string[] args)
     {
+        (string name, string surname, string login, int loginLength, bool hasPet,
+         double age, string[] userColors) User;
         string[] userColors = new string[3];
+        
+        Console.WriteLine("Введите имя:"); User.name = Console.ReadLine();
         for (int i = 0; i < 3; i++)
         {
-            userColors[i] = ShowColor(i);
+            userColors[i] = ShowColor(i, User.name);
             Console.WriteLine($"your color is {userColors[i]}"); 
         }
     }
 
-    private static string ShowColor(int index)
+    private static string ShowColor(int index, string username)
     {
-        Console.WriteLine($"Введите {index + 1}-й цвет по-английски с маленькой буквы:");
+        Console.WriteLine($"{username}: Введите {index + 1}-й цвет по-английски с маленькой буквы:");
         var color = Console.ReadLine();
 
         switch (color)
